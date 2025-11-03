@@ -1,0 +1,8 @@
+#DAY1 Challenge 
+--List all unique hospital services available in the hospital.--
+  SELECT DISTINCT(service) AS services 
+  FROM services_weekly;
+Explanation :
+  When extracting data from a table people generally use select * from table_name which extracts everything (all rows & columns) from the table which takes much time to execute the query.
+  If it is a small query/using a small dataset the execution time is negligible, but 
+  
