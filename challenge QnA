@@ -4,5 +4,26 @@
   FROM services_weekly;
 Explanation :
   When extracting data from a table people generally use select * from table_name which extracts everything (all rows & columns) from the table which takes much time to execute the query.
-  If it is a small query/using a small dataset the execution time is negligible, but 
-  
+  If it is a small query/using a small dataset the execution time is negligible, but when it comes to large datasets it takes lot of time to load and execute the query.
+  So the first and basic query optimisation technique is avoid using SELECT * table_name instead use SELECT column1, column2 from table_name.
+
+
+#DAY2 Challenge
+--Find all patients who are older than 60 years.
+USE HOSPITAL;
+SELECT patient_id,name FROM patients
+WHERE age > 60;
+
+--Retrieve all staff members who work in the 'Emergency' service.
+SELECT staff_id, staff_name FROM staff
+WHERE service = 'emergency';
+
+--List all weeks where more than 100 patients requested admission in any service.
+SELECT week,service FROM services_weekly
+WHERE patients_request > 100;
+
+/*Find all patients admitted to 'Surgery' service with a satisfaction score below 70,
+showing their patient_id, name, age, and satisfaction score.*/
+SELECT patient_id, name, age, satisfaction AS satisfaction_score 
+FROM patients
+WHERE service = 'surgery' AND satisfaction < 70;
